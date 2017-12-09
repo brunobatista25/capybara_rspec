@@ -1,0 +1,2 @@
+--require spec_helper
+--format documentation  --format html --out=results/rspec_results.html
