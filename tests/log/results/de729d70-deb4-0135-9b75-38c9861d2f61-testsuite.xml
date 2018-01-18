@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1516304201847" stop="1516304217308">
+  <name>Registrar conta</name>
+  <title>Registrar conta</title>
+  <test-cases>
+    <test-case start="1516304201847" stop="1516304217307" status="passed">
+      <name>Registrar conta Com sucesso</name>
+      <title>Registrar conta Com sucesso</title>
+      <steps/>
+      <attachments>
+        <attachment source="78ba80584bb50cc36ab90389358f30a0659a1db38aead931caa9ad731fe70564-attachment.png" title="screenshots" size="320730" type="image/png"/>
+      </attachments>
+      <labels>
+        <label name="thread" value="70357138798540"/>
+        <label name="host" value="brunos-Mac-mini.local"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="70357138798540"/>
+    <label name="host" value="brunos-Mac-mini.local"/>
+  </labels>
+</ns2:test-suite>

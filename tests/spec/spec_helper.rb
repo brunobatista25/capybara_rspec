@@ -3,7 +3,6 @@ require 'capybara'
 require 'capybara/rspec'
 require 'capybara/rspec/matchers'
 require 'capybara/dsl'
-require 'cucumber'
 require 'faker'
 require 'logger'
 require 'rspec'
@@ -14,10 +13,11 @@ require 'ostruct'
 require_relative '../suport/page_helper.rb'
 
 RSpec.configure do |config|
+  config.before(:each) do
+    config.include Capybara::DSL
+  end
   config.include AllureRSpec::Adaptor
-  config.include Capybara::DSL
   config.include Capybara::RSpecMatchers
-  config.include Helper
   config.include Pages
   config.after(:each) do |scenario|
     temp_screenshot = '/log/results/temp_screenshoot.png'
@@ -43,11 +43,11 @@ Capybara.configure do |config|
   config.default_driver = :selenium
   config.javascript_driver = :chrome
   config.app_host = 'http://demo.automationtesting.in/'
-  config.default_max_wait_time = 60
+  config.default_max_wait_time = 10
 end
 
-AllureRSpec.configure do |c|
-  c.output_dir = 'log/results'
-  c.clean_dir = true
-  c.logging_level = Logger::WARN
+AllureRSpec.configure do |config|
+  config.output_dir = 'log/results'
+  config.clean_dir = true
+  config.logging_level = Logger::WARN
 end
