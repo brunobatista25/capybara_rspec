@@ -11,7 +11,6 @@ require 'rspec/expectations'
 require 'selenium-webdriver'
 require 'site_prism'
 require 'ostruct'
-require_relative '../suport/helper.rb'
 require_relative '../suport/page_helper.rb'
 
 RSpec.configure do |config|
