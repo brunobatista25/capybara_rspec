@@ -10,7 +10,10 @@ require 'rspec/expectations'
 require 'selenium-webdriver'
 require 'site_prism'
 require 'ostruct'
+require 'yaml'
 require_relative '../suport/page_helper.rb'
+
+env_yaml = YAML.load_file("#{Dir.pwd}/suport/rspec.yml")
 
 RSpec.configure do |config|
   config.before(:each) do
@@ -27,21 +30,50 @@ RSpec.configure do |config|
   end
 end
 
-# Configura o tipo de browser
+# Escolhendo qual browser se quero chrome ou se quero firefox
+# E se roda em headless ou sem headless
 Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new(
-    app,
-    browser: :chrome,
-    desired_capabilities: Selenium::WebDriver::Remote::Capabilities.chrome(
-      'chromeOptions' => { 'args' => ['--start-maximized',
-                                      '--disable-infobars'] }
-    )
-  )
+  if env_yaml['browser'].eql?('chrome')
+    if env_yaml['headless'].eql?('headless')
+      preferences = { credentials_enable_service: false,
+                      password_manager_enabled: false }
+      Capybara::Selenium::Driver.new(
+        app,
+        browser: :chrome,
+        desired_capabilities: Selenium::WebDriver::Remote::Capabilities.chrome(
+          'chromeOptions' => { 'args' => ['headless', 'disable-gpu',
+                                          '--disable-infobars',
+                                          'window-size=1600,1024'],
+                               'prefs' => preferences }
+        )
+      )
+    elsif env_yaml['headless'].eql?('no_headless')
+      Capybara::Selenium::Driver.new(
+        app,
+        browser: :chrome,
+        desired_capabilities: Selenium::WebDriver::Remote::Capabilities.chrome(
+          'chromeOptions' => { 'args' => ['--disable-infobars',
+                                          'window-size=1600,1024'],
+                               'prefs' => preferences }
+        )
+      )
+    end
+  elsif env_yaml['browser'].eql?('firefox')
+    if env_yaml['headless'].eql?('headless')
+      browser_options = Selenium::WebDriver::Firefox::Options.new(args: ['--headless'])
+      Capybara::Selenium::Driver.new(
+        app,
+        browser: :firefox,
+        options: browser_options
+      )
+    end
+  elsif env_yaml['headless'].eql?('no_headless')
+    Capybara::Selenium::Driver.new(app, browser: :firefox, marionette: true)
+  end
 end
-# Configura o link principal e qual navegador vai usar
+
 Capybara.configure do |config|
   config.default_driver = :selenium
-  config.javascript_driver = :chrome
   config.app_host = 'http://demo.automationtesting.in/'
   config.default_max_wait_time = 10
 end

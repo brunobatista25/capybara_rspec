@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1516577638294" stop="1516577653790">
+  <name>Registrar conta</name>
+  <title>Registrar conta</title>
+  <test-cases>
+    <test-case start="1516577638294" stop="1516577653790" status="passed">
+      <name>Registrar conta Com sucesso</name>
+      <title>Registrar conta Com sucesso</title>
+      <steps/>
+      <attachments>
+        <attachment source="f8b7d8c6a9ef3f8e0a5e494dc4221b801cb755a426a20507efce348d475779b1-attachment.png" title="screenshots" size="470730" type="image/png"/>
+      </attachments>
+      <labels>
+        <label name="thread" value="70253744961460"/>
+        <label name="host" value="MBP-de-bruno"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="70253744961460"/>
+    <label name="host" value="MBP-de-bruno"/>
+  </labels>
+</ns2:test-suite>
