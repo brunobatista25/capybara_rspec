@@ -25,7 +25,7 @@ bundle install
 
 ## 4- Passo
 
-Para instalar o allure report neja este post falando como instala:
+Para instalar o Allure Report veja neste post falando como instala o Allure:
 
 
 https://medium.com/qaninja/screenxote-dos-milagres-9d8853864fd4
@@ -37,6 +37,5 @@ Para rodar o projeto basta usar o comando:
 ```
 rspec
 ```
-
 
 Até mais jovens!
