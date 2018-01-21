@@ -23,11 +23,20 @@ Agora rode o comando:
 bundle install
 ```
 
-## 4-Passo
+## 4- Passo
+
+Para instalar o allure report neja este post falando como instala:
+
+
+https://medium.com/qaninja/screenxote-dos-milagres-9d8853864fd4
+
+
+## 5-Passo
 Para rodar o projeto basta usar o comando:
 
 ```
 rspec
 ```
+
 
 Até mais jovens!
