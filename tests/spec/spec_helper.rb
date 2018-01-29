@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'allure-rspec'
 require 'capybara'
 require 'capybara/rspec'
@@ -14,7 +16,7 @@ require 'yaml'
 require_relative '../suport/page_helper.rb'
 
 rspec_yml = YAML.load_file("#{Dir.pwd}/suport/rspec.yml")
-env = YAML.load_file("#{Dir.pwd}/suport/#{rspec_yml['environment']}.yml")
+env = YAML.load_file("#{Dir.pwd}/suport/data/#{rspec_yml['environment']}.yml")
 
 RSpec.configure do |config|
   config.before(:each) do
