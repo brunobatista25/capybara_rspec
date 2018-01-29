@@ -48,6 +48,8 @@ Capybara.register_driver :selenium do |app|
         )
       )
     elsif env_yaml['headless'].eql?('no_headless')
+      preferences = { credentials_enable_service: false,
+                      password_manager_enabled: false }
       Capybara::Selenium::Driver.new(
         app,
         browser: :chrome,
