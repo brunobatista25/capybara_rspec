@@ -4,6 +4,6 @@ Dir[File.join(File.dirname(__FILE__),
 # Modulos para chamar as classes instanciadas
 module Pages
   def home
-    HomePage.new
+    @home ||= HomePage.new
   end
 end
