@@ -2,9 +2,8 @@
 
 require 'allure-rspec'
 require 'capybara'
-require 'capybara/rspec'
-require 'capybara/rspec/matchers'
 require 'capybara/dsl'
+require 'capybara/rspec/matchers'
 require 'faker'
 require 'logger'
 require 'rspec'
@@ -19,9 +18,7 @@ rspec_yml = YAML.load_file("#{Dir.pwd}/suport/rspec.yml")
 env = YAML.load_file("#{Dir.pwd}/suport/data/#{rspec_yml['environment']}.yml")
 
 RSpec.configure do |config|
-  config.before(:each) do
-    config.include Capybara::DSL
-  end
+  config.include Capybara::DSL
   config.include AllureRSpec::Adaptor
   config.include Capybara::RSpecMatchers
   config.include Pages
