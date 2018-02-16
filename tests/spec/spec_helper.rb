@@ -68,10 +68,10 @@ Capybara.register_driver :selenium do |app|
         browser: :firefox,
         options: browser_options
       )
-    end
   elsif rspec_yml['headless'].eql?('no_headless')
     Capybara::Selenium::Driver.new(app, browser: :firefox, marionette: true)
   end
+end
 end
 
 Capybara.configure do |config|
