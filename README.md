@@ -38,4 +38,10 @@ Para rodar o projeto basta usar o comando:
 rspec
 ```
 
+ou
+
+```
+bundle exec rspec
+```
+
 Até mais jovens!
