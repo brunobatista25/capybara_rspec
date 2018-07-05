@@ -35,28 +35,22 @@ end
 Capybara.register_driver :selenium do |app|
   if rspec_yml['browser'].eql?('chrome')
     if rspec_yml['headless'].eql?('headless')
-      preferences = { credentials_enable_service: false,
-                      password_manager_enabled: false }
       Capybara::Selenium::Driver.new(
         app,
         browser: :chrome,
         desired_capabilities: Selenium::WebDriver::Remote::Capabilities.chrome(
           'chromeOptions' => { 'args' => ['headless', 'disable-gpu',
                                           '--disable-infobars',
-                                          'window-size=1600,1024'],
-                               'prefs' => preferences }
+                                          'window-size=1600,1024'] }
         )
       )
     elsif rspec_yml['headless'].eql?('no_headless')
-      preferences = { credentials_enable_service: false,
-                      password_manager_enabled: false }
       Capybara::Selenium::Driver.new(
         app,
         browser: :chrome,
         desired_capabilities: Selenium::WebDriver::Remote::Capabilities.chrome(
           'chromeOptions' => { 'args' => ['--disable-infobars',
-                                          'window-size=1600,1024'],
-                               'prefs' => preferences }
+                                          'window-size=1600,1024'] }
         )
       )
     end
@@ -76,7 +70,7 @@ end
 
 Capybara.configure do |config|
   config.default_driver = :selenium
-  config.app_host = env['url']
+  config.app_host = env['url_home']
   config.default_max_wait_time = 10
 end
 
