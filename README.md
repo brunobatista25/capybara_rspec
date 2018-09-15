@@ -23,15 +23,7 @@ Agora rode o comando:
 bundle install
 ```
 
-## 4- Passo
-
-Para instalar o Allure Report veja neste post falando como instala o Allure:
-
-
-https://medium.com/qaninja/screenxote-dos-milagres-9d8853864fd4
-
-
-## 5-Passo
+## 4-Passo
 Para rodar o projeto basta usar o comando:
 
 ```

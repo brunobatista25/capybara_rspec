@@ -2,6 +2,6 @@
 ---
 #para rodar sem headless basta alterar para no_headless
 #para rodar no firefox bastar colocar firefox
-headless: no_headless
+headless: headless
 browser: chrome
 environment: qa

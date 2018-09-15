@@ -77,9 +77,9 @@ GEM
     selenium-webdriver (3.13.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
-    site_prism (2.12)
+    site_prism (2.15.1)
       addressable (~> 2.4)
-      capybara (~> 2.12)
+      capybara (>= 2.14, < 3.3)
     systemu (2.6.5)
     unicode-display_width (1.4.0)
     uuid (2.3.9)
@@ -92,14 +92,14 @@ PLATFORMS
 
 DEPENDENCIES
   allure-rspec
-  capybara
+  capybara (< 3.3)
   chromedriver-helper
   faker
   rake
   rspec
   rubocop
-  selenium-webdriver
-  site_prism (= 2.12)
+  selenium-webdriver (~> 3.4)
+  site_prism (= 2.15.1)
 
 BUNDLED WITH
-   1.16.1
+   1.16.2

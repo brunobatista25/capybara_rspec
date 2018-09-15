@@ -8,10 +8,9 @@ describe 'Registrar conta' do
     @pessoa.sobrenome = Faker::Name.last_name
     @pessoa.endereco = Faker::Address.street_name
     @pessoa.email = Faker::Internet.free_email
-  
+
     user_page.realizar_cadastro(@pessoa)
 
-    @texto = find('#notice')
-    expect(@texto.text).to eq 'Usuário Criado com sucesso'
+    expect(user_page.notice.text).to eq 'Usuário Criado com sucesso'
   end
 end

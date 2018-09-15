@@ -11,6 +11,7 @@ class UserPage < SitePrism::Page
   element :idade, '#user_age'
   element :botao_criar, 'input[value="Criar"]'
   element :botao_cancelar, 'a[href="/treinamento/home"]'
+  element :notice, '#notice'
 
   def realizar_cadastro(pessoa)
     nome.set pessoa.nome
@@ -18,10 +19,9 @@ class UserPage < SitePrism::Page
     endereco.set pessoa.endereco
     email.set pessoa.email
     universidade.set 'Anhanguera'
-    profissao.set 'analista' 
+    profissao.set 'analista'
     genero.set 'Masculino'
     idade.set 28
     botao_criar.click
   end
-
 end

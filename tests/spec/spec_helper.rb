@@ -35,37 +35,26 @@ end
 Capybara.register_driver :selenium do |app|
   if rspec_yml['browser'].eql?('chrome')
     if rspec_yml['headless'].eql?('headless')
-      Capybara::Selenium::Driver.new(
-        app,
-        browser: :chrome,
-        desired_capabilities: Selenium::WebDriver::Remote::Capabilities.chrome(
-          'chromeOptions' => { 'args' => ['headless', 'disable-gpu',
-                                          '--disable-infobars',
-                                          'window-size=1600,1024'] }
-        )
+      option = ::Selenium::WebDriver::Chrome::Options.new(
+        args: ['--headless', '--disable-gpu', '--disable-infobars', '--window-size=1600,1024']
       )
+      Capybara::Selenium::Driver.new(app, browser: :chrome, options: option)
     elsif rspec_yml['headless'].eql?('no_headless')
-      Capybara::Selenium::Driver.new(
-        app,
-        browser: :chrome,
-        desired_capabilities: Selenium::WebDriver::Remote::Capabilities.chrome(
-          'chromeOptions' => { 'args' => ['--disable-infobars',
-                                          'window-size=1600,1024'] }
-        )
+      option = ::Selenium::WebDriver::Chrome::Options.new(
+        args: ['--disable-infobars', '--window-size=1600,1024']
       )
+      Capybara::Selenium::Driver.new(app, browser: :chrome, options: option)
     end
-  elsif rspec_yml['browser'].eql?('firefox')
+    elsif rspec_yml['browser'].eql?('firefox')
     if rspec_yml['headless'].eql?('headless')
       browser_options = Selenium::WebDriver::Firefox::Options.new(args: ['--headless'])
       Capybara::Selenium::Driver.new(
-        app,
-        browser: :firefox,
-        options: browser_options
+        app, browser: :firefox, options: browser_options
       )
-  elsif rspec_yml['headless'].eql?('no_headless')
-    Capybara::Selenium::Driver.new(app, browser: :firefox, marionette: true)
+    elsif rspec_yml['headless'].eql?('no_headless')
+      Capybara::Selenium::Driver.new(app, browser: :firefox, marionette: true)
+    end
   end
-end
 end
 
 Capybara.configure do |config|
