@@ -36,7 +36,7 @@ Capybara.register_driver :selenium do |app|
   if rspec_yml['browser'].eql?('chrome')
     if rspec_yml['headless'].eql?('headless')
       option = ::Selenium::WebDriver::Chrome::Options.new(
-        args: ['--headless', '--disable-gpu', '--disable-infobars', '--window-size=1600,1024']
+        args: ['--headless', '--disable-gpu', '--disable-infobars', '--window-size=1600,1024', "--no-sandbox"]
       )
       Capybara::Selenium::Driver.new(app, browser: :chrome, options: option, :driver_path => "/usr/local/bin/chromedriver")
     elsif rspec_yml['headless'].eql?('no_headless')
