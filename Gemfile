@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 gem 'allure-rspec'
 gem 'capybara', '<3.3'
-gem 'chromedriver-helper'
 gem 'faker'
 gem 'rake'
 gem 'rspec'
