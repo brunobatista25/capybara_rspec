@@ -43,7 +43,7 @@ Capybara.register_driver :selenium do |app|
       option = ::Selenium::WebDriver::Chrome::Options.new(
         args: ['--disable-infobars', '--window-size=1600,1024']
       )
-      Capybara::Selenium::Driver.new(app, browser: :chrome, options: option, :driver_path => "/Users/Shared/Jenkins/Home/plugins/chromedriver)
+      Capybara::Selenium::Driver.new(app, browser: :chrome, options: option, :driver_path => "/Users/Shared/Jenkins/Home/plugins/chromedriver")
     end
     elsif rspec_yml['browser'].eql?('firefox')
     if rspec_yml['headless'].eql?('headless')
